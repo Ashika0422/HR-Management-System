@@ -1,0 +1,420 @@
+﻿<Application x:Class="AdvancedHRMS.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AdvancedHRMS"
+             
+              ShutdownMode="OnExplicitShutdown">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Color Palette -->
+            <Color x:Key="PrimaryColor">#4CAF50</Color>
+            <!-- Green -->
+            <Color x:Key="PrimaryDarkColor">#388E3C</Color>
+            <!-- Darker Green -->
+            <Color x:Key="PrimaryLightColor">#C8E6C9</Color>
+            <!-- Light Green -->
+            <Color x:Key="SecondaryColor">#8BC34A</Color>
+            <!-- Lime Green -->
+            <Color x:Key="BackgroundColor">#F1F8E9</Color>
+            <!-- Very light green background -->
+            <Color x:Key="CardColor">#FFFFFF</Color>
+            <!-- White for cards -->
+            <Color x:Key="TextColor">#1B5E20</Color>
+            <!-- Deep green for text -->
+            <Color x:Key="TextLightColor">#558B2F</Color>
+            <!-- Light green for secondary text -->
+            <Color x:Key="DangerColor">#D32F2F</Color>
+            <!-- Red for errors -->
+            <Color x:Key="AccentColor">#00E676</Color>
+            <!-- Bright green accent -->
+            <Color x:Key="DarkColor">#2E7D32</Color>
+            <!-- Deep green for footer -->
+            <Color x:Key="LightColor">#FFFFFF</Color>
+            <!-- White text on dark background -->
+            <Color x:Key="TextDarkColor">#33691E</Color>
+            <!-- Strong green -->
+            <Color x:Key="ErrorColor">#E53935</Color>
+            <!-- Error red -->
+            <Color x:Key="BorderColor">#A5D6A7</Color>
+            <!-- Light green border -->
+            <Color x:Key="LightGrayColor">#E8F5E9</Color>
+            <!-- Light green-gray -->
+
+            <!-- Add these to your existing App.xaml resources -->
+
+           
+
+            <!-- Text Styles -->
+            <Style x:Key="HProfileLabell" TargetType="TextBlock">
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+            </Style>
+
+            <Style x:Key="HProfileValuee" TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,5,0,10"/>
+            </Style>
+
+
+
+            <!-- Message Styles -->
+
+
+
+
+
+            <!-- Brushes -->
+            <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+            <SolidColorBrush x:Key="PrimaryDarkBrush" Color="{StaticResource PrimaryDarkColor}"/>
+            <SolidColorBrush x:Key="PrimaryLightBrush" Color="{StaticResource PrimaryLightColor}"/>
+            <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}"/>
+            <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+            <SolidColorBrush x:Key="CardBrush" Color="{StaticResource CardColor}"/>
+            <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+            <SolidColorBrush x:Key="TextLightBrush" Color="{StaticResource TextLightColor}"/>
+            <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+            <SolidColorBrush x:Key="DarkBrush" Color="{StaticResource DarkColor}"/>
+            <SolidColorBrush x:Key="TextDarkBrush" Color="{StaticResource TextDarkColor}"/>
+            <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}"/>
+            
+            <!-- Window Style -->
+            <Style x:Key="StandardWindow" TargetType="Window">
+                <Setter Property="Background" Value="#f5f7fa"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+
+
+
+            </Style>
+
+            <!-- Card Style -->
+            <Style x:Key="Card" TargetType="Border">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="BorderBrush" Value="#e0e0e0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="6"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="3" Opacity="0.1" BlurRadius="10"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Text Styles -->
+            <Style x:Key="Heading1" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,5"/>
+            </Style>
+
+            <Style x:Key="FormLabel" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,5"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <!-- Form Control Styles -->
+            <Style x:Key="FormTextBox" TargetType="TextBox">
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderBrush" Value="#ddd"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+
+            <Style x:Key="FormPasswordBox" TargetType="PasswordBox">
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderBrush" Value="#ddd"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+
+            <!-- Button Style -->
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="2" Opacity="0.2" BlurRadius="4"/>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#3a6ea5"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Add these to your existing App.xaml resources -->
+
+            <!-- Form Control Styles -->
+
+
+            <Style x:Key="FormComboBox" TargetType="ComboBox">
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderBrush" Value="#ddd"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+
+            <!-- Text Brushes -->
+
+
+            <!-- Hyperlink Style -->
+            <Style x:Key="LinkStyle" TargetType="Hyperlink">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
+            </Style>
+
+            <!-- Error Message Style -->
+            <Style x:Key="ErrorMessage" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource ErrorBrush}"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="FontSize" Value="13"/>
+            </Style>
+
+            <!-- Fonts -->
+            <FontFamily x:Key="MainFont">Segoe UI</FontFamily>
+            <FontFamily x:Key="HeadingFont">Segoe UI Semibold</FontFamily>
+
+            <!-- Window Style -->
+            <Style TargetType="Window">
+                <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="FontFamily" Value="{StaticResource MainFont}"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <!-- Button Styles -->
+
+
+            <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+                <Setter Property="Background" Value="{StaticResource SecondaryBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+
+            <!-- TextBlock Styles -->
+
+
+            <Style x:Key="Heading2" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="{StaticResource PrimaryDarkBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+
+            <!-- Card Style -->
+
+
+            <!-- Add these to your Application.Resources in App.xaml -->
+
+
+
+            <!-- Window Template -->
+
+            <!-- Brushes -->
+
+            <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+
+            <SolidColorBrush x:Key="LightBrush" Color="{StaticResource LightColor}"/>
+
+            <!-- TextBox Style -->
+            <Style TargetType="TextBox">
+                <Setter Property="Padding" Value="8"/>
+                <Setter Property="BorderBrush" Value="#E0E0E0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+
+            <!-- DataGrid Style -->
+            <Style TargetType="DataGrid">
+                <Setter Property="Background" Value="{StaticResource CardBrush}"/>
+                <Setter Property="BorderBrush" Value="#E0E0E0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="RowBackground" Value="White"/>
+                <Setter Property="AlternatingRowBackground" Value="#FAFAFA"/>
+                <Setter Property="GridLinesVisibility" Value="None"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+                <Setter Property="CanUserAddRows" Value="False"/>
+                <Setter Property="CanUserDeleteRows" Value="False"/>
+                <Setter Property="SelectionMode" Value="Single"/>
+                <Setter Property="SelectionUnit" Value="FullRow"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="Margin" Value="0,0,0,20"/>
+            </Style>
+
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Padding" Value="10,8"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+            </Style>
+
+            <Style x:Key="DataGridHeaderStyle" TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="#34495e"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Padding" Value="10"/>
+
+            </Style>
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#4A90E2"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Style>
+
+            <Style x:Key="SectionHeader" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+
+            <!-- Add these to your existing App.xaml resources -->
+
+            <!-- Card Style -->
+
+
+            <!-- Text Styles -->
+
+
+
+
+            <!-- Message Styles -->
+
+
+
+
+
+
+            <!-- Navigation Button Styles -->
+            <Style x:Key="NavButtonStyle" TargetType="Button"
+>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="#FFDDDDDD"/>
+                        <Setter Property="TextBlock.TextDecorations" Value="Underline"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="SideNavButtonStyle" TargetType="Button" BasedOn="{StaticResource NavButtonStyle}">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="Padding" Value="15,10"/>
+                <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                <Setter Property="BorderBrush" Value="#E0E0E0"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#E3F2FD"/>
+                        <Setter Property="Foreground" Value="#0D47A1"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="DangerButton" TargetType="Button">
+                <Setter Property="Background" Value="Red"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Padding" Value="10,5"/>
+            </Style>
+            <!-- Navigation Button Style -->
+
+            <Style x:Key="NavButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="0,5"/>
+            </Style>
+
+            <Style x:Key="InfoMessage" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#E74C3C" />
+                <Setter Property="Margin" Value="0,10,0,0"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="FontSize" Value="13"/>
+            </Style>
+
+           
+
+            <Style x:Key="FooterButton" TargetType="Button" >
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="BorderThickness" Value="1"/>
+            </Style>
+
+            <Style x:Key="StatusMessage" TargetType="TextBlock">
+                <Setter Property="FontStyle" Value="Italic"/>
+                <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+            </Style>
+
+            <Style x:Key="ProfileLabel" TargetType="TextBlock">
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Margin" Value="0,0,0,5"/>
+            </Style>
+
+            <Style x:Key="ProfileValue" TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+
+            <Style x:Key="PrintStyle" TargetType="Control">
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+
+          
+                <!-- Search TextBox Style -->
+                <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="BorderBrush" Value="#CCCCCC"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                </Style>
+
+                <!-- Filter ComboBox Style -->
+                <Style x:Key="FilterComboBoxStyle" TargetType="ComboBox">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="BorderBrush" Value="#CCCCCC"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+
+                <!-- Clear Button Style -->
+                <Style x:Key="ClearFilterButtonStyle" TargetType="Button">
+                    <Setter Property="Background" Value="#EEEEEE"/>
+                    <Setter Property="BorderBrush" Value="#CCCCCC"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="#333333"/>
+                </Style>
+           
+
+
+
+
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>
