@@ -34,18 +34,6 @@ The Human Resource Management System is a robust application that helps organiza
 
    Navigate to the project directory and open `HRManagementSystem.sln` in Visual Studio.
 
-3. **Open SSMS and import the DB**
-
-   * Restore the provided `.bak` file or use the SQL scripts to set up the database.
-   * Ensure the connection string in the application is correctly configured.
-
-4. **Build the project**
-
-   In Visual Studio, go to `Build > Build Solution`.
-
-5. **Run the application**
-
-   Use `F5` or click the Start button in Visual Studio.
 
 ## Usage
 
